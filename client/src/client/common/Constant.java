@@ -1,11 +1,8 @@
-package client;
+package client.common;
+
 
 public class Constant {
-	// RMI params
-	public static final String RMI_ID = "RMI-Object";
-	public static final int RMI_PORT = 5236;
 
-	// Client graphics params
 	/**
 	 * Maximum width of the canvas where the game can be played
 	 */
