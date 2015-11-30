@@ -13,13 +13,13 @@ public class CartRestService {
 	public String login() {
 		return "User login!";
 	}
-	
+
 	@GET
 	@Path("/user/logout")
 	public String logout(@QueryParam("userid") int userid) {
 		return "User lgout for userid : " + userid;
 	}
-	
+
 	@GET
 	@Path("/product/list")
 	public String listProducts() {
@@ -31,13 +31,13 @@ public class CartRestService {
 	public String addToCart(@PathParam("productid") int productid, @QueryParam("userid") int userid) {
 		return "Product : " + productid + " userid : " + userid;
 	}
-	
+
 	@GET
 	@Path("/cart/list")
-	public String addToCart(@QueryParam("userid") int userid) {
+	public String listCart(@QueryParam("userid") int userid) {
 		return "Cartlisting for userid : " + userid;
 	}
-	
+
 	@GET
 	@Path("/cart/checkout")
 	public String checkout(@QueryParam("userid") int userid) {
