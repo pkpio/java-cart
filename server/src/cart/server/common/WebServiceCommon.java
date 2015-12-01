@@ -105,6 +105,10 @@ public class WebServiceCommon {
 	public static ArrayList<Product> listCart(String userid) {
 		Cart cart = mCarts.get(userid);
 		ArrayList<Product> products = new ArrayList<Product>();
+
+		if (cart == null)
+			return products;
+
 		for (int id : cart.getProducts().keySet())
 			products.add(mInventory.get(id));
 		return products;
@@ -121,7 +125,7 @@ public class WebServiceCommon {
 	public static CartAPIResponse checkout(String userid) {
 		// Get user's cart
 		Cart cart = mCarts.get(userid);
-		
+
 		if (cart == null)
 			return new CartAPIResponse(403, "Cart unavailable. Did you login?");
 
