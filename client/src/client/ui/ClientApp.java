@@ -18,7 +18,7 @@ public class ClientApp {
 	public static void main(String[] args) throws RemoteException, NotBoundException {
 
 		try {
-			new ClientView(new ClientCtrl());
+			new ClientView(new ClientCtrl(ClientCtrl.API_TYPE_REST));
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

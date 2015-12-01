@@ -173,8 +173,7 @@ public class ProductDetailsPanel extends javax.swing.JPanel {
 	}
 
 	private void addToCart(java.awt.event.ActionEvent evt) {
-
-		controlBoject.addToCart(productIdLabel.getText(), (Integer) quantity.getValue());
+		controlBoject.addToCart(Integer.valueOf(productIdLabel.getText()));
 	}
 
 }
