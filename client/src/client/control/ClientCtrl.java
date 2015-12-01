@@ -1,25 +1,69 @@
 package client.control;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class ClientCtrl {
-	Map<String, Integer> cart;
+	public static final int API_TYPE_REST = 1;
+	public static final int API_TYPE_SOAP = 2;
 
-	/*
-	 * on checkout perform the REST call for purchase
+	int mApiType = API_TYPE_REST;
+
+	/**
+	 * State info for future calls
 	 */
-	public ClientCtrl(){
-		this.cart= new HashMap<String, Integer>();
-	}
-	public void performCheckout() {
-		System.out.println("Checking out");
+	String mUserid;
+
+	/**
+	 * Initialize the client with the type of API endpoint to be used for
+	 * backend calls
+	 * 
+	 * @param apiType
+	 */
+	public ClientCtrl(int apiType) {
+		this.mApiType = apiType;
 	}
 
-	public void addToCart(String productId, Integer quantity) {
-		System.out.println("Product added");
-		this.cart.put(productId, quantity);
-		
+	/**
+	 * Login with given userid
+	 * 
+	 * @param userid
+	 */
+	public void login(String userid) {
+		this.mUserid = userid;
+	}
+
+	/**
+	 * Logout the client
+	 */
+	public void logout() {
+
+	}
+
+	/**
+	 * List all available products in the store
+	 */
+	public void listProducts() {
+
+	}
+
+	/**
+	 * Add the product to cart
+	 * 
+	 * @param productid
+	 */
+	public void addToCart(int productid) {
+
+	}
+
+	/**
+	 * Remove the product from cart
+	 * 
+	 * @param productid
+	 */
+	public void removeFromCart(int productid) {
+
+	}
+
+	public void performCheckout() {
+
 	}
 
 }
