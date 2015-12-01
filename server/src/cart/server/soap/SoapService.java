@@ -2,37 +2,39 @@ package cart.server.soap;
 
 import javax.jws.WebService;
 
+import cart.server.common.WebServiceCommon;
+
 @WebService(endpointInterface = "cart.server.soap.SoapInterface")
 public class SoapService implements SoapInterface {
 
 	@Override
 	public String login() {
-		return "User login!";
+		return WebServiceCommon.login();
 	}
 
 	@Override
-	public String logout(int userid) {
-		return "User lgout for userid : " + userid;
+	public String logout(String userid) {
+		return WebServiceCommon.logout(userid);
 	}
 
 	@Override
 	public String listProducts() {
-		return "Product list";
+		return WebServiceCommon.listProducts();
 	}
 
 	@Override
-	public String addToCart(int productid, int userid) {
-		return "Product : " + productid + " userid : " + userid;
+	public String addToCart(int productid, String userid) {
+		return WebServiceCommon.addToCart(productid, userid);
 	}
 
 	@Override
-	public String listCart(int userid) {
-		return "Cartlisting for userid : " + userid;
+	public String listCart(String userid) {
+		return WebServiceCommon.listCart(userid);
 	}
 
 	@Override
-	public String checkout(int userid) {
-		return "Cart checkout for userid : " + userid;
+	public String checkout(String userid) {
+		return WebServiceCommon.checkout(userid);
 	}
 
 }

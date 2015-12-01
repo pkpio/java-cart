@@ -13,18 +13,18 @@ public interface SoapInterface {
 	String login();
 
 	@WebMethod
-	String logout(int userid);
+	String logout(String userid);
 
 	@WebMethod
 	String listProducts();
 
 	@WebMethod
-	String addToCart(int productid, int userid);
+	String addToCart(int productid, String userid);
 
 	@WebMethod
-	String listCart(int userid);
+	String listCart(String userid);
 
 	@WebMethod
-	String checkout(int userid);
+	String checkout(String userid);
 
 }
