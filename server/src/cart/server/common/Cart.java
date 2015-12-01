@@ -2,8 +2,10 @@ package cart.server.common;
 
 import java.util.HashMap;
 
+import cart.common.model.Product;
+
 /**
- * Shopping cart of a user
+ * Model for shopping cart of a user as maintained by the server
  * 
  * @author praveen
  *
