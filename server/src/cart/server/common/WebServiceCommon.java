@@ -2,6 +2,7 @@ package cart.server.common;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 
 import cart.common.model.CartAPIResponse;
 import cart.common.model.Product;
@@ -118,11 +119,16 @@ public class WebServiceCommon {
 	 * @return
 	 */
 	public static CartAPIResponse checkout(String userid) {
-		// Remove the above number products for each user
-		Cart userCart = mCarts.get(userid);
+		// Get user's cart
+		Cart cart = mCarts.get(userid);
+		
+		if (cart == null)
+			return new CartAPIResponse(403, "Cart unavailable. Did you login?");
 
-		for (Product cartProduct : userCart.getProducts().values()) {
-			Product origProduct = mInventory.get(cartProduct.getId());
+		// Iterate over each product in cart
+		Iterator<Integer> cartItems = cart.getProducts().keySet().iterator();
+		while (cartItems.hasNext()) {
+			Product origProduct = mInventory.get(cartItems.next());
 
 			// Quantity checks
 			if (origProduct.getQuantity() <= 0)
@@ -130,7 +136,7 @@ public class WebServiceCommon {
 
 			// Remove the product from cart and decrease inventory quantity
 			origProduct.setQuantity(origProduct.getQuantity() - 1);
-			userCart.removeProduct(cartProduct.getId());
+			cart.removeProduct(origProduct.getId());
 		}
 		return new CartAPIResponse(200, "success!");
 	}
