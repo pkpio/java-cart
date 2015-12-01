@@ -5,8 +5,8 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.QueryParam;
 
-@Path("/shop")
-public class CartRestService {
+@Path("/")
+public class RestService {
 
 	@GET
 	@Path("/user/login")
