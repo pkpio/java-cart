@@ -1,0 +1,61 @@
+<project>
+
+	<description>
+		TK1 - Programmieraufgabe 2
+	</description>
+
+	<property name="src" location="src" />
+	<property name="build" location="build" />
+	<property name="dist" location="dist" />
+	<property name="soap.gen.dst" location="src/" />
+	<property name="soap.gen.folder" location="src/cart/server/" />
+	<property name="soap.wsdl" value="http://localhost:8090/soap?wsdl" />
+	<property name="rel.lib.path" value="../lib/asm-3.1.jar ../lib/jersey-bundle-1.13-b01.jar 
+		../lib/gson-2.2.2.jar ../lib/jrs311-api-1.1.1.jar" />
+
+	<target name="clean">
+		<delete dir="${build}" />
+		<delete dir="${dist}" />
+	</target>
+
+	<target name="init" depends="clean">
+		<tstamp />
+		<mkdir dir="${build}" />
+
+		<!-- Check the SOAP service is running before trying to generate classes -->
+		<echo message="Checking if SOAP server is running ..." />
+		<waitfor maxwait="30" maxwaitunit="minute" checkevery="500">
+			<socket server="localhost" port="8090" />
+		</waitfor>
+		<exec executable="${java.home}/../bin/wsimport">
+			<arg line="-keep -d ${soap.gen.dst} ${soap.wsdl}" />
+		</exec>
+	</target>
+
+	<target name="compile" depends="init">
+		<javac srcdir="${src}" destdir="${build}" includeantruntime="false">
+			<classpath>
+				<pathelement path="lib/asm-3.1.jar" />
+				<pathelement path="lib/gson-2.2.2.jar" />
+				<pathelement path="lib/jersey-bundle-1.13-b01.jar" />
+				<pathelement path="lib/jrs311-api-1.1.1.jar" />
+			</classpath>
+		</javac>
+	</target>
+
+	<target name="jar" depends="compile">
+		<jar destfile="${dist}/client.jar" basedir="${build}">
+			<manifest>
+				<attribute name="Main-Class" value="cart.client.ui.ClientApp" />
+				<attribute name="Class-Path" value="${rel.lib.path}" />
+			</manifest>
+		</jar>
+	</target>
+
+	<target name="start-clients" depends="jar">
+		<parallel>
+			<java jar="${dist}/client.jar" fork="true" failonerror="true" />
+		</parallel>
+	</target>
+
+</project>
