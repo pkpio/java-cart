@@ -42,6 +42,7 @@ public class ClientCtrl {
 	 * @return True if login success
 	 */
 	public Boolean login(String userid) {
+		mUserid = userid;
 		String response = mApiInterface.login(userid);
 		CartAPIResponse resp = new Gson().fromJson(response, CartAPIResponse.class);
 		return resp.getStatus() == 200;
