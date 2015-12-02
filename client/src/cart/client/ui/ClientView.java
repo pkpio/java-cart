@@ -1,4 +1,4 @@
-package client.ui;
+package cart.client.ui;
 
 import java.awt.Dimension;
 import java.awt.Toolkit;
@@ -16,10 +16,11 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.LayoutStyle.ComponentPlacement;
-import javax.swing.SwingConstants;
 
-import client.common.Constant;
-import client.control.ClientCtrl;
+import cart.client.common.Constant;
+import cart.client.control.ClientCtrl;
+
+import javax.swing.SwingConstants;
 
 /**
  * The client GUI logic appears here
@@ -84,7 +85,7 @@ public class ClientView {
 				if (name.length() != 0)
 					try {
 						// mController.login(name);
-						startGame();
+						startCart();
 					} catch (Exception e1) {
 						e1.printStackTrace();
 					}
@@ -100,7 +101,7 @@ public class ClientView {
 
 	}
 
-	protected void startGame() {
+	protected void startCart() {
 		customerName.setVisible(false);
 		customerNameTextField.setVisible(false);
 		logIn.setVisible(false);

@@ -1,4 +1,4 @@
-package client.control;
+package cart.client.control;
 
 import cart.server.soap.SoapInterface;
 import cart.server.soap.SoapServiceService;

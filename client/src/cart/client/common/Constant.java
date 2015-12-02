@@ -1,4 +1,4 @@
-package client.common;
+package cart.client.common;
 
 
 public class Constant {

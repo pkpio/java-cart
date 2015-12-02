@@ -1,4 +1,4 @@
-package client.control;
+package cart.client.control;
 
 import com.google.gson.Gson;
 

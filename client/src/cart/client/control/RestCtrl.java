@@ -1,4 +1,4 @@
-package client.control;
+package cart.client.control;
 
 import javax.ws.rs.core.MediaType;
 
@@ -6,7 +6,7 @@ import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.WebResource;
 import com.sun.jersey.api.client.config.DefaultClientConfig;
 
-import client.common.Constant;
+import cart.client.common.Constant;
 
 /**
  * REST API controller that communicates with server using REST calls

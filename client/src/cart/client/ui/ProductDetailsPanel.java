@@ -1,9 +1,9 @@
-package client.ui;
+package cart.client.ui;
 
 import javax.swing.SpinnerModel;
 import javax.swing.SpinnerNumberModel;
 
-import client.control.ClientCtrl;
+import cart.client.control.ClientCtrl;
 
 public class ProductDetailsPanel extends javax.swing.JPanel {
 	/**

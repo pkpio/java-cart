@@ -1,9 +1,9 @@
-package client.ui;
+package cart.client.ui;
 
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 
-import client.control.ClientCtrl;
+import cart.client.control.ClientCtrl;
 
 /**
  * This is the entry point for client application.
