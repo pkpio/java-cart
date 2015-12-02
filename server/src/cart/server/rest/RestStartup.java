@@ -6,14 +6,10 @@ import com.sun.jersey.api.container.httpserver.HttpServerFactory;
 import com.sun.net.httpserver.HttpServer;
 
 import cart.server.common.Params;
-import cart.server.common.WebServiceCommon;
 
 public class RestStartup {
 
-	public static void main(String[] args) {
-		// Init products first
-		WebServiceCommon.initProductData();
-
+	public static void startService() {
 		try {
 			HttpServer server = HttpServerFactory.create(Params.API_REST_URI);
 			server.start();

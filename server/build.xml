@@ -6,6 +6,9 @@
 
 	<property name="src" location="src" />
 	<property name="build" location="build" />
+	<property name="dist" location="dist" />
+	<property name="rel.lib.path" value="../lib/asm-3.1.jar ../lib/jersey-bundle-1.13-b01.jar 
+		../lib/gson-2.2.2.jar ../lib/jrs311-api-1.1.1.jar" />
 
 	<target name="clean">
 		<delete dir="${build}" />
@@ -29,24 +32,17 @@
 	</target>
 
 	<target name="jar" depends="compile">
-		<jar destfile="${dist}/rest-server.jar" basedir="${build}">
+		<jar destfile="${dist}/services.jar" basedir="${build}">
 			<manifest>
-				<attribute name="Main-Class" value="cart.server.rest.RestStartup" />
-				<attribute name="Class-Path" value="../lib/asm-3.1.jar ../lib/jersey-bundle-1.13-b01.jar ../lib/gson-2.2.2.jar ../lib/jrs311-api-1.1.1.jar" />
-			</manifest>
-		</jar>
-		<jar destfile="${dist}/soap-server.jar" basedir="${build}">
-			<manifest>
-				<attribute name="Main-Class" value="cart.server.soap.SoapStartup" />
-				<attribute name="Class-Path" value="../lib/asm-3.1.jar ../lib/jersey-bundle-1.13-b01.jar ../lib/gson-2.2.2.jar ../lib/jrs311-api-1.1.1.jar" />
+				<attribute name="Main-Class" value="cart.server.common.ServicesStarter" />
+				<attribute name="Class-Path" value="${rel.lib.path}" />
 			</manifest>
 		</jar>
 	</target>
 
 	<target name="start-services" depends="jar">
 		<parallel>
-			<java jar="${dist}/rest-server.jar" fork="true" failonerror="true" />
-			<java jar="${dist}/soap-server.jar" fork="true" failonerror="true" />
+			<java jar="${dist}/services.jar" fork="true" failonerror="true" />
 		</parallel>
 	</target>
 
