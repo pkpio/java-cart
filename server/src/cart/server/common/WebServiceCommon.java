@@ -144,7 +144,7 @@ public class WebServiceCommon {
 
 			// Remove the product from cart and decrease inventory quantity
 			origProduct.setQuantity(origProduct.getQuantity() - 1);
-			cart.removeProduct(origProduct.getId());
+			cartItems.remove();
 		}
 		return new CartAPIResponse(200, "success!");
 	}
