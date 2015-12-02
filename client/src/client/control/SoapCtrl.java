@@ -3,6 +3,13 @@ package client.control;
 import cart.server.soap.SoapInterface;
 import cart.server.soap.SoapServiceService;
 
+/**
+ * 
+ * SOAP API controller that communicates with server using SOAP calls
+ * 
+ * @author praveen
+ *
+ */
 public class SoapCtrl implements APICommonCtrl {
 	SoapInterface mSoapInterface;
 

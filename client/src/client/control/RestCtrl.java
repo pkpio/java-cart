@@ -8,6 +8,12 @@ import com.sun.jersey.api.client.config.DefaultClientConfig;
 
 import client.common.Constant;
 
+/**
+ * REST API controller that communicates with server using REST calls
+ * 
+ * @author praveen
+ *
+ */
 public class RestCtrl implements APICommonCtrl {
 	WebResource mRestInterface;
 

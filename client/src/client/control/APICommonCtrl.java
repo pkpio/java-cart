@@ -1,7 +1,7 @@
 package client.control;
 
 /**
- * This is a common interface tobe implemented by all the API controllers
+ * This is a common interface to be implemented by all the API controllers
  * 
  * @author praveen
  *

@@ -5,6 +5,13 @@ import com.google.gson.Gson;
 import cart.common.model.CartAPIResponse;
 import cart.common.model.Product;
 
+/**
+ * Abstracts the client - server communication. Offers REST and SOAP as options
+ * for backend API at the time of controller initialization.
+ * 
+ * @author praveen
+ *
+ */
 public class ClientCtrl {
 	public static final int API_TYPE_REST = 1;
 	public static final int API_TYPE_SOAP = 2;
@@ -81,7 +88,6 @@ public class ClientCtrl {
 	public Product[] removeFromCart(int productid) {
 		String response = mApiInterface.removeFromCart(mUserid, productid);
 		return new Gson().fromJson(response, Product[].class);
-
 	}
 
 	/**
