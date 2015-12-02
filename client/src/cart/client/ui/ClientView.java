@@ -19,6 +19,7 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 
 import cart.client.common.Constant;
 import cart.client.control.ClientCtrl;
+import cart.common.model.Product;
 
 import javax.swing.SwingConstants;
 
@@ -143,6 +144,7 @@ public class ClientView {
 				if (res == 0) {
 					javaCart.setVisible(false);
 					javaCart.dispose();
+					controlObject.logout();
 					System.exit(0);
 				}
 			}
@@ -160,13 +162,11 @@ public class ClientView {
 	}
 
 	private void addProducts() {
-
-		// This must be replaced by the list of product received by server
+		Product[] products = controlObject.listProducts();
 		mainPanel.add(new ProductDetailsPanel(controlObject));
-		mainPanel.add(new ProductDetailsPanel("EE10GB100P145", "COOOOKER", 100, 10, controlObject));
-		mainPanel.add(new ProductDetailsPanel("EE10GB100P335", "COOOOKER", 100, 10, controlObject));
-		mainPanel.add(new ProductDetailsPanel("EE10GB100P236", "COOOOKER", 100, 10, controlObject));
-
+		for (Product product : products)
+			mainPanel.add(new ProductDetailsPanel(product.getId(), product.getTitle(), product.getPrice(),
+					product.getQuantity(), controlObject));
 		mainPanel.setVisible(true);
 
 	}

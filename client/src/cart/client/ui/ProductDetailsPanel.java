@@ -95,11 +95,11 @@ public class ProductDetailsPanel extends javax.swing.JPanel {
 	/**
 	 * Creates new form ProductDetailsPanel
 	 */
-	public ProductDetailsPanel(String productId, String productName, int price, int availableQuantity,
+	public ProductDetailsPanel(int productId, String productName, int price, int availableQuantity,
 			ClientCtrl ctrlObject) {
 		this.controlBoject = ctrlObject;
 		initComponents();
-		this.productIdLabel.setText(productId);
+		this.productIdLabel.setText(productId + "");
 		this.productName.setText(productName);
 		this.price.setText(price + "");
 		SpinnerModel model = new SpinnerNumberModel(1, // initial value
