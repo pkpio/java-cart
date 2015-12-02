@@ -216,7 +216,7 @@ public class ClientView {
 			mainPanel.repaint();
 			mainPanel.removeAll();
 			mainPanel.setVisible(false);
-			controlObject.performCheckout();
+			controlObject.checkout();
 		}
 	}
 
