@@ -6,13 +6,7 @@ import javax.swing.SpinnerNumberModel;
 import cart.client.control.ClientCtrl;
 
 public class ProductDetailsPanel extends javax.swing.JPanel {
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
-	/**
-	 * 
-	 */
 
 	private javax.swing.JLabel productIDHeader;
 	private javax.swing.JLabel productNameHeader;
@@ -25,16 +19,17 @@ public class ProductDetailsPanel extends javax.swing.JPanel {
 	private javax.swing.JLabel price;
 	private javax.swing.JPanel productDetailsPanel;
 	private javax.swing.JSpinner quantity;
-	ClientCtrl controlBoject;
 
-	public ProductDetailsPanel(ClientCtrl controlBoject) {
-		this.controlBoject = controlBoject;
+	ClientCtrl controlobject;
+	int productid;
+
+	public ProductDetailsPanel(ClientCtrl controlobject) {
+		this.controlobject = controlobject;
 		initHeaderPanel();
 
 	}
 
 	private void initHeaderPanel() {
-
 		headerPanel = new javax.swing.JPanel();
 		productIDHeader = new javax.swing.JLabel();
 		productNameHeader = new javax.swing.JLabel();
@@ -42,11 +37,8 @@ public class ProductDetailsPanel extends javax.swing.JPanel {
 		quantityHeader = new javax.swing.JLabel();
 
 		productIDHeader.setText("ProductId");
-
 		productNameHeader.setText("ProductName");
-
 		priceHeader.setText("Price");
-
 		quantityHeader.setText("Quantity");
 
 		javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(headerPanel);
@@ -97,7 +89,8 @@ public class ProductDetailsPanel extends javax.swing.JPanel {
 	 */
 	public ProductDetailsPanel(int productId, String productName, int price, int availableQuantity,
 			ClientCtrl ctrlObject) {
-		this.controlBoject = ctrlObject;
+		this.controlobject = ctrlObject;
+		this.productid = productId;
 		initComponents();
 		this.productIdLabel.setText(productId + "");
 		this.productName.setText(productName);
@@ -173,7 +166,7 @@ public class ProductDetailsPanel extends javax.swing.JPanel {
 	}
 
 	private void addToCart(java.awt.event.ActionEvent evt) {
-		controlBoject.addToCart(Integer.valueOf(productIdLabel.getText()));
+		controlobject.addToCart(productid);
 	}
 
 }

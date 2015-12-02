@@ -85,7 +85,7 @@ public class ClientView {
 				name = customerNameTextField.getText();
 				if (name.length() != 0)
 					try {
-						// mController.login(name);
+						controlObject.login(name);
 						startCart();
 					} catch (Exception e1) {
 						e1.printStackTrace();
