@@ -44,12 +44,14 @@ public class ClientView {
 	ClientCtrl controlObject;
 
 	public ClientView(ClientCtrl controlObject) throws Exception {
-		initGUI();
 		this.controlObject = controlObject;
+		initGUI();
 	}
 
 	private void initGUI() throws Exception {
-		javaCart = new JFrame("JavaCart");
+		String title = "JavaCart " + ((controlObject.getApiType() == ClientCtrl.API_TYPE_REST) ? "REST" : "SOAP")
+				+ " API client";
+		javaCart = new JFrame(title);
 		screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		javaCart.setBounds(0, 0, 1024, 768);
 		int xCoordinate, yCoordinate;

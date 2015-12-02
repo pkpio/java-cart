@@ -8,7 +8,7 @@
 	<property name="build" location="build" />
 	<property name="dist" location="dist" />
 	<property name="soap.gen.dst" location="src/" />
-	<property name="soap.gen.folder" location="src/cart/server/" />
+	<property name="soap.gen.folder" location="src/cart/server" />
 	<property name="soap.wsdl" value="http://localhost:8090/soap?wsdl" />
 	<property name="rel.lib.path" value="../lib/asm-3.1.jar ../lib/jersey-bundle-1.13-b01.jar 
 		../lib/gson-2.2.2.jar ../lib/jrs311-api-1.1.1.jar" />
@@ -16,6 +16,7 @@
 	<target name="clean">
 		<delete dir="${build}" />
 		<delete dir="${dist}" />
+		<delete dir="${soap.gen.folder}" />
 	</target>
 
 	<target name="init" depends="clean">
@@ -23,6 +24,7 @@
 		<mkdir dir="${build}" />
 
 		<!-- Check the SOAP service is running before trying to generate classes -->
+		<echo message="NOTE : You MUST start SOAP server using build script for server" />
 		<echo message="Checking if SOAP server is running ..." />
 		<waitfor maxwait="30" maxwaitunit="minute" checkevery="500">
 			<socket server="localhost" port="8090" />
@@ -54,7 +56,12 @@
 
 	<target name="start-clients" depends="jar">
 		<parallel>
-			<java jar="${dist}/client.jar" fork="true" failonerror="true" />
+			<java jar="${dist}/client.jar" fork="true" failonerror="true">
+				<arg line="rest" />
+			</java>
+			<java jar="${dist}/client.jar" fork="true" failonerror="true">
+				<arg line="soap" />
+			</java>
 		</parallel>
 	</target>
 

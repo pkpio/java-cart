@@ -13,14 +13,18 @@ import cart.client.control.ClientCtrl;
 public class ClientApp {
 
 	public static void main(String[] args) throws RemoteException, NotBoundException {
+		// Decide the type of client back end we are going to use
+		int apiType;
+		if (args.length > 0 && args[0].contentEquals("rest")) {
+			apiType = ClientCtrl.API_TYPE_REST;
+			System.out.println("Client using REST for backend");
+		} else {
+			apiType = ClientCtrl.API_TYPE_SOAP;
+			System.out.println("Client using SOAP for backend");
+		}
 
 		try {
-			// -TODO- Ram, The client backend API type should be choosed based
-			// on the arguments passed while starting the client. The exercise
-			// asks to start a REST and SOAP client so, we have to implement the
-			// arguments to main function such that one option starts client
-			// with REST as API and other as SOAP
-			new ClientView(new ClientCtrl(ClientCtrl.API_TYPE_REST));
+			new ClientView(new ClientCtrl(apiType));
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

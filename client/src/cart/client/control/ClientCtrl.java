@@ -19,6 +19,7 @@ public class ClientCtrl {
 	/**
 	 * State info for future calls
 	 */
+	int mApiType;
 	APICommonCtrl mApiInterface;
 	String mUserid;
 
@@ -29,6 +30,7 @@ public class ClientCtrl {
 	 * @param apiType
 	 */
 	public ClientCtrl(int apiType) {
+		mApiType = apiType;
 		if (apiType == API_TYPE_REST)
 			mApiInterface = new RestCtrl();
 		else
@@ -110,6 +112,15 @@ public class ClientCtrl {
 		String response = mApiInterface.checkout(mUserid);
 		CartAPIResponse resp = new Gson().fromJson(response, CartAPIResponse.class);
 		return resp.getStatus() == 200;
+	}
+
+	/**
+	 * Get the API backend being used for the client
+	 * 
+	 * @return Api Type
+	 */
+	public int getApiType() {
+		return mApiType;
 	}
 
 }
