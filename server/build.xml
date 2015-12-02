@@ -23,7 +23,6 @@
 		<javac srcdir="${src}" destdir="${build}">
 			<classpath>
 				<pathelement path="lib/asm-3.1.jar" />
-				<pathelement path="lib/common.jar" />
 				<pathelement path="lib/gson-2.2.2.jar" />
 				<pathelement path="lib/jersey-bundle-1.13-b01.jar" />
 				<pathelement path="lib/jrs311-api-1.1.1.jar" />
