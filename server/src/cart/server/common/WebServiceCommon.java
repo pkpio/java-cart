@@ -24,6 +24,10 @@ public class WebServiceCommon {
 	 * Initializes some product info for the shopping service
 	 */
 	public static void initProductData() {
+		// Avoid duplicate initializations
+		if(mInventory.size() != 0)
+			return;
+		
 		mInventory.put(1, new Product(1, "Pen drive", 20, 5));
 		mInventory.put(2, new Product(2, "Hard disk", 200, 1));
 		mInventory.put(3, new Product(3, "Desktop PC", 1000, 1));

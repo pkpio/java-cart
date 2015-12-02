@@ -17,9 +17,7 @@ public class RestStartup {
 		try {
 			HttpServer server = HttpServerFactory.create(Params.API_REST_URI);
 			server.start();
-			System.out.println("Press Enter to stop the server. ");
-			System.in.read();
-			server.stop(0);
+			System.out.println("REST Server Started!");
 		} catch (IllegalArgumentException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
