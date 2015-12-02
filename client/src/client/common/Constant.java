@@ -3,6 +3,9 @@ package client.common;
 
 public class Constant {
 
+	public static final String API_REST_URI = "http://localhost:8080/rest";
+	public static final String API_SOAP_URI = "http://localhost:8090/soap";
+	
 	/**
 	 * Maximum width of the canvas where the game can be played
 	 */
