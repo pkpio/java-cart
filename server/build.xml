@@ -46,4 +46,7 @@
 		</parallel>
 	</target>
 
+	<target name="default" depends="start-services">
+	</target>
+
 </project>

@@ -65,4 +65,7 @@
 		</parallel>
 	</target>
 
+	<target name="default" depends="start-clients">
+	</target>
+
 </project>
