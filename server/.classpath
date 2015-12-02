@@ -6,6 +6,5 @@
 	<classpathentry kind="lib" path="lib/jersey-bundle-1.13-b01.jar"/>
 	<classpathentry kind="lib" path="lib/jsr311-api-1.1.1.jar"/>
 	<classpathentry kind="lib" path="lib/gson-2.2.2.jar"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/cart-common"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
