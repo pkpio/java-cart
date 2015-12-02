@@ -6,8 +6,6 @@
 
 	<property name="src" location="src" />
 	<property name="build" location="build" />
-	<property name="dist" location="dist" />
-	<property name="common.dir" location="../common" />
 
 	<target name="clean">
 		<delete dir="${build}" />
@@ -20,7 +18,7 @@
 	</target>
 
 	<target name="compile" depends="init">
-		<javac srcdir="${src}" destdir="${build}">
+		<javac srcdir="${src}" destdir="${build}" includeantruntime="false">
 			<classpath>
 				<pathelement path="lib/asm-3.1.jar" />
 				<pathelement path="lib/gson-2.2.2.jar" />
@@ -34,11 +32,13 @@
 		<jar destfile="${dist}/rest-server.jar" basedir="${build}">
 			<manifest>
 				<attribute name="Main-Class" value="cart.server.rest.RestStartup" />
+				<attribute name="Class-Path" value="../lib/asm-3.1.jar ../lib/jersey-bundle-1.13-b01.jar ../lib/gson-2.2.2.jar ../lib/jrs311-api-1.1.1.jar" />
 			</manifest>
 		</jar>
 		<jar destfile="${dist}/soap-server.jar" basedir="${build}">
 			<manifest>
 				<attribute name="Main-Class" value="cart.server.soap.SoapStartup" />
+				<attribute name="Class-Path" value="../lib/asm-3.1.jar ../lib/jersey-bundle-1.13-b01.jar ../lib/gson-2.2.2.jar ../lib/jrs311-api-1.1.1.jar" />
 			</manifest>
 		</jar>
 	</target>
