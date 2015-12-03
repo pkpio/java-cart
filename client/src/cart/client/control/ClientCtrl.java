@@ -2,6 +2,7 @@ package cart.client.control;
 
 import com.google.gson.Gson;
 
+import cart.client.ui.ClientView;
 import cart.common.model.CartAPIResponse;
 import cart.common.model.Product;
 
@@ -22,6 +23,7 @@ public class ClientCtrl {
 	int mApiType;
 	APICommonCtrl mApiInterface;
 	String mUserid;
+	ClientView clientView;
 
 	/**
 	 * Initialize the client with the type of API endpoint to be used for
@@ -122,5 +124,18 @@ public class ClientCtrl {
 	public int getApiType() {
 		return mApiType;
 	}
+	/**
+	 * object used for call backs
+	 * 
+	 * @param view
+	 */
+	public void setClientView(ClientView view) {
+		clientView = view;
 
+	}
+
+	public ClientView getClientView() {
+		return clientView;
+
+	}
 }
