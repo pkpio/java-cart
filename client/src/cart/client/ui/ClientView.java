@@ -362,6 +362,7 @@ public class ClientView {
 	private void checkOutButtonActionPerformed(java.awt.event.ActionEvent evt) {
 		if (controlObject.listCart().length == 0) {
 			JOptionPane.showMessageDialog(javaCart, "Cart is empty", "Error", JOptionPane.ERROR_MESSAGE);
+			updatecart();
 		} else {
 			int res = JOptionPane.showConfirmDialog(javaCart, "Are you sure you want to proceed to checkout?",
 					"checkout",

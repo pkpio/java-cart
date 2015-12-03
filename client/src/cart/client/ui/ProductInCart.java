@@ -44,7 +44,7 @@ public class ProductInCart extends javax.swing.JPanel {
 		productNameLabel.setText(productName);
 		productPrice.setText("$" + price);
 		removeProduct = new javax.swing.JButton();
-		removeProduct.setIcon(new javax.swing.ImageIcon("/Users/Ram/git/java-cart-new/res/editing-delete-icon.png")); // NOI18N
+		removeProduct.setIcon(new javax.swing.ImageIcon("res/editing-delete-icon.png")); // NOI18N
 
 		removeProduct.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
