@@ -25,13 +25,13 @@ public class WebServiceCommon {
 	 */
 	public static void initProductData() {
 		// Avoid duplicate initializations
-		if(mInventory.size() != 0)
+		if (mInventory.size() != 0)
 			return;
-		
+
 		mInventory.put(1, new Product(1, "Pen drive", 20, 5));
 		mInventory.put(2, new Product(2, "Hard disk", 200, 1));
-		mInventory.put(3, new Product(3, "Desktop PC", 1000, 1));
-		mInventory.put(4, new Product(4, "Mac Book Pro", 1550, 1));
+		mInventory.put(3, new Product(3, "Desktop", 1000, 1));
+		mInventory.put(4, new Product(4, "Mac Book", 1550, 1));
 	}
 
 	/**
@@ -140,13 +140,13 @@ public class WebServiceCommon {
 
 			// Quantity checks
 			if (origProduct.getQuantity() <= 0)
-				return new CartAPIResponse(403, "Insufficient stock for productid : " + origProduct.getId());
+				return new CartAPIResponse(403, "Insufficient stock for product : " + origProduct.getTitle());
 
 			// Remove the product from cart and decrease inventory quantity
 			origProduct.setQuantity(origProduct.getQuantity() - 1);
 			cartItems.remove();
 		}
-		return new CartAPIResponse(200, "success!");
+		return new CartAPIResponse(200, "Purchase complete! Congrats!");
 	}
 
 }
