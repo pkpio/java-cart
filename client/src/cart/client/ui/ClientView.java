@@ -17,12 +17,12 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.SwingConstants;
 
 import cart.client.common.Constant;
 import cart.client.control.ClientCtrl;
+import cart.common.model.CartAPIResponse;
 import cart.common.model.Product;
-
-import javax.swing.SwingConstants;
 
 /**
  * 
@@ -369,8 +369,8 @@ public class ClientView {
 
 					JOptionPane.YES_NO_OPTION);
 			if (res == 0) {
-
-				controlObject.checkout();
+				CartAPIResponse response = controlObject.checkout();
+				serverResponseTextArea.setText(response.getMessage());
 				addProducts();
 				updatecart();
 			}

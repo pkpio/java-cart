@@ -33,8 +33,6 @@ public class ProductInCart extends javax.swing.JPanel {
 		initComponents(product.getTitle(), product.getPrice());
 	}
 
-	
-	@SuppressWarnings("unchecked")
 	private void initComponents(String productName, int price) {
 
 		productNameLabel = new javax.swing.JLabel();
@@ -64,7 +62,6 @@ public class ProductInCart extends javax.swing.JPanel {
 		controlObject.getClientView().updatecart();
 	}
 
-	
 	private javax.swing.JButton removeProduct;
 	private javax.swing.JLabel productNameLabel;
 	private javax.swing.JLabel productPrice;

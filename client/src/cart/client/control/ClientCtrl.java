@@ -110,10 +110,9 @@ public class ClientCtrl {
 	 * 
 	 * @return True if checkout success
 	 */
-	public Boolean checkout() {
+	public CartAPIResponse checkout() {
 		String response = mApiInterface.checkout(mUserid);
-		CartAPIResponse resp = new Gson().fromJson(response, CartAPIResponse.class);
-		return resp.getStatus() == 200;
+		return new Gson().fromJson(response, CartAPIResponse.class);
 	}
 
 	/**
@@ -124,6 +123,7 @@ public class ClientCtrl {
 	public int getApiType() {
 		return mApiType;
 	}
+
 	/**
 	 * object used for call backs
 	 * 
